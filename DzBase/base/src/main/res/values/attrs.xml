@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="RoundIView">
+        <attr name="roundRadius" format="dimension"/>
+        <attr name="roundStyle" format="enum">
+            <enum name="Left" value="0" />
+            <enum name="Right" value="1" />
+            <enum name="Top" value="2" />
+            <enum name="Bottom" value="3" />
+            <enum name="Normal" value="4" />
+        </attr>
+    </declare-styleable>
+
+</resources>
