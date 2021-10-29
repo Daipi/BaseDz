@@ -1,15 +1,11 @@
 package com.daipi.practice.viewmodel
 
-import androidx.databinding.Bindable
-import androidx.databinding.Observable
-import androidx.databinding.ObservableField
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.daipi.base.utils.LogUtil
 import com.daipi.http.netApi.NetWorkApi
 import com.daipi.http.netApi.test.ProjectType
-import com.daipi.practice.BR
 import com.daipi.practice.Pig
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.*

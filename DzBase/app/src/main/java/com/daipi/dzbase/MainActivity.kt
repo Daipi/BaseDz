@@ -8,11 +8,15 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import com.daipi.base.autoservice.BaseServiceLoader
+import com.daipi.base.utils.LogUtil
 import com.daipi.common.Cat
 import com.daipi.common.autoservice.IPracticeService
+import com.daipi.common.bus.BusKey
+import com.daipi.common.bus.TestEvent
 import com.daipi.dzbase.databinding.ActivityMainBinding
 import com.daipi.dzbase.room.User
 import com.daipi.dzbase.viewmodel.MainTestModel
+import com.jeremyliao.liveeventbus.LiveEventBus
 import dagger.hilt.android.AndroidEntryPoint
 
 
@@ -54,10 +58,26 @@ class MainActivity : AppCompatActivity() {
 /*    override fun getContentViewId(): Int {
         return R.layout.activity_main
     }*/
+        registerBus()
+    }
+
+    private fun registerBus() {
+        LiveEventBus
+            .get(TestEvent::class.java)
+            .observe(this,
+                {
+                    LogUtil.d("LiveDataBus ****MainActivity",it)
+                    mainModel.user.value = User(null,it.content,it.content) })
     }
 
     fun toPractice(view: View) {
+        //LiveDataBus.get().with("testBus").value = "哈哈哈LiveDataBus"
         BaseServiceLoader.load(IPracticeService::class.java)
             ?.toPractice(this, cat.name)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        LogUtil.d("LiveDataBus ****MainActivity onDestroy()")
     }
 }

@@ -9,10 +9,12 @@ import com.daipi.base.utils.ContextUtils
 import com.daipi.base.utils.LogUtil
 import com.daipi.base.utils.ToastUtil
 import com.daipi.common.GlideUtils
-import com.daipi.http.netApi.test.ProjectType
+import com.daipi.common.bus.BusKey
+import com.daipi.common.bus.TestEvent
 import com.daipi.practice.adapter.PracticeAdapter
 import com.daipi.practice.databinding.ActivityPracticeBinding
 import com.daipi.practice.viewmodel.PracticeModel
+import com.jeremyliao.liveeventbus.LiveEventBus
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.*
 import java.util.ArrayList
@@ -78,10 +80,21 @@ class PracticeActivity : BaseBindActivity() {
 
         //GlobalScope.launch(MyContinuationInterceptor()) { test() }
         MainScope().launch(MyContinuationInterceptor()) { test() }
+        registerBus()
     }
 
-    suspend fun test() {
+    private fun registerBus() {
+        LiveEventBus
+            .get(TestEvent::class.java)
+            .observe(this,
+                {
+                    LogUtil.d("LiveDataBus ****PracticeActivity",it)
+                    binding.tvTitle.text = it.content })
+    }
+    suspend fun test() = withContext(Dispatchers.Main){
         LogUtil.d(1)
+        delay(2000)
+        LiveEventBus.get(TestEvent::class.java).post(TestEvent("Hello"))
 /*        val job = viewModel.viewModelScope.async(CoroutineName("XC02"),start = CoroutineStart.LAZY) {
             LogUtil.d("02")
             999

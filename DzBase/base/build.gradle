@@ -62,5 +62,7 @@ dependencies {
     api "io.reactivex.rxjava2:rxandroid:$rootProject.rxandroid"
     api "me.jessyan:autosize:$rootProject.autosize"
 
+    api 'io.github.jeremyliao:live-event-bus-x:1.8.0'
+
     api project(':permission')
 }

@@ -36,7 +36,7 @@ class MainTestModel @Inject constructor (
         val job = viewModelScope.launch {
             user.postValue(getDBData()[0])
         }
-        repeat(100) { i ->
+        repeat(2) { i ->
             LogUtil.d("xxx $i")
         }
         //job.cancel()
