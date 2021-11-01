@@ -13,8 +13,8 @@ android {
         applicationId "com.daipi.dzbase"
         minSdkVersion rootProject.minSdkVersion
         targetSdkVersion rootProject.targetSdkVersion
-        versionCode 1
-        versionName "1.0"
+        versionCode rootProject.versionCode
+        versionName rootProject.versionName
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -41,6 +41,33 @@ android {
             option("-Adagger.hilt.android.internal.disableAndroidSuperclassValidation=true")
         }
     }
+
+    //修改生成的apk名字
+    applicationVariants.all { variant ->
+        variant.outputs.each { output ->
+            def apkName = getApkName(variant, "", rootProject.versionName)
+            output.outputFileName = apkName
+        }
+    }
+}
+
+def getApkName(variant, channel, version) {
+    def name
+    if (rootProject.debug) {
+        name = getProductName() + "_v" + version + "_${buildTime()}_" + channel + "_" + variant.buildType.name + ".apk"
+    } else {
+        name = getProductName() + "_v" + version + "_${buildTime()}_" + channel + "_" + variant.buildType.name + ".apk"
+    }
+    return name
+}
+
+def static buildTime() {
+    return new Date().format("yyyy-MM-dd", TimeZone.getTimeZone("UTC"))
+}
+
+// 获取程序名称
+def static getProductName() {
+    return "appDzBase"
 }
 
 dependencies {

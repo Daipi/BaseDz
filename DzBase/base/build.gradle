@@ -51,6 +51,7 @@ dependencies {
     api "androidx.lifecycle:lifecycle-viewmodel-ktx:$rootProject.lifecycleVersion"
     api "androidx.navigation:navigation-fragment-ktx:$rootProject.navigationVersion"
     api "androidx.navigation:navigation-ui-ktx:$rootProject.navigationVersion"
+    api "androidx.navigation:navigation-compose:$rootProject.navigationVersion"
     implementation "androidx.paging:paging-runtime-ktx:$rootProject.pagingVersion"
 
     api "androidx.viewpager2:viewpager2:$rootProject.viewPagerVersion"

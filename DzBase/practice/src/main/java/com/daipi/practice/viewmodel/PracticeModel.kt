@@ -28,17 +28,20 @@ class PracticeModel @Inject constructor (): ViewModel() {
 
 
     init {
-        pig.value?.setName("8888")
-        val job = viewModelScope.launch {
-            user.postValue(getDBData()[0])
+        pig.value?.run() {
+            setName("8888")
+            val job = viewModelScope.launch {
+                user.postValue(getDBData()[0])
+            }
+            repeat(100) { i ->
+                LogUtil.d("xxx $i")
+            }
+            viewModelScope.launch {
+                delay(5000)
+                setName("9999")
+            }
         }
-        repeat(100) { i ->
-            LogUtil.d("xxx $i")
-        }
-        viewModelScope.launch {
-            delay(5000)
-            pig.value?.setName("9999")
-        }
+
         //job.cancel()
     }
 

@@ -11,8 +11,8 @@ android {
 
         minSdkVersion rootProject.minSdkVersion
         targetSdkVersion rootProject.targetSdkVersion
-        versionCode 1
-        versionName "1.0"
+        versionCode rootProject.versionCode
+        versionName rootProject.versionName
 
         javaCompileOptions {
             annotationProcessorOptions {
