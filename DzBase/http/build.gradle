@@ -18,7 +18,8 @@ android {
 
     buildTypes {
         release {
-            minifyEnabled true
+            minifyEnabled true//代码缩减
+            shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             buildConfigField "int", 'VERSION_CODE', String.valueOf(1)
             buildConfigField 'String', 'VERSION_NAME', "\"" + "1.0" + "\""
