@@ -34,6 +34,8 @@ class MainTestModel @Inject constructor (
 
     init {
         val job = viewModelScope.launch {
+            delay(5000)
+            LogUtil.d("okhttp","xxxx")
             user.postValue(getDBData()[0])
         }
         repeat(2) { i ->

@@ -1,6 +1,7 @@
 package com.daipi.practice.fragment
 
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.viewModelScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.daipi.base.base.BaseBindFragment
 import com.daipi.base.interceptor.MyContinuationInterceptor
@@ -48,8 +49,16 @@ class TestFragment: BaseBindFragment() {
         binding.rvMainList.layoutManager = manager
         binding.rvMainList.adapter = adapter
         //GlobalScope.launch(MyContinuationInterceptor()) { test() }
-        MainScope().launch(MyContinuationInterceptor()) { test() }
+        viewModel.viewModelScope.launch(MyContinuationInterceptor()) { test() }
         registerBus()
+        viewModel.viewModelScope.launch (Dispatchers.IO){
+            var i = 50
+/*            while(i > 0) {
+                i--
+                LogUtil.d(i)
+                delay(2000)
+            }*/
+        }
     }
 
     private fun registerBus() {

@@ -1,6 +1,7 @@
 package com.daipi.base.base
 
 import android.app.Activity
+import android.content.ComponentCallbacks2
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
@@ -18,7 +19,7 @@ import kotlinx.coroutines.cancel
  * time:2021/10/18 15:20
  * details:DataBinding初始化，权限请求，协程作用域取消
  */
-abstract class BaseBindActivity : AppCompatActivity(), CoroutineScope by MainScope() {
+abstract class BaseBindActivity : AppCompatActivity(), CoroutineScope by MainScope(), ComponentCallbacks2 {
     val TAG = this.javaClass.simpleName
     protected var mActivity: Activity? = null
     private var dataBinding: ViewDataBinding? = null
@@ -78,4 +79,54 @@ abstract class BaseBindActivity : AppCompatActivity(), CoroutineScope by MainSco
      * @return id
      */
     abstract fun getContentViewId(): Int
+
+    //内存状态变化处理
+    override fun onTrimMemory(level: Int) {
+        // Determine which lifecycle or system event was raised.
+        when (level) {
+
+            ComponentCallbacks2.TRIM_MEMORY_UI_HIDDEN -> {
+                /*
+                   Release any UI objects that currently hold memory.
+
+                   The user interface has moved to the background.
+                */
+            }
+
+            ComponentCallbacks2.TRIM_MEMORY_RUNNING_MODERATE,
+            ComponentCallbacks2.TRIM_MEMORY_RUNNING_LOW,
+            ComponentCallbacks2.TRIM_MEMORY_RUNNING_CRITICAL -> {
+                /*
+                   Release any memory that your app doesn't need to run.
+
+                   The device is running low on memory while the app is running.
+                   The event raised indicates the severity of the memory-related event.
+                   If the event is TRIM_MEMORY_RUNNING_CRITICAL, then the system will
+                   begin killing background processes.
+                */
+            }
+
+            ComponentCallbacks2.TRIM_MEMORY_BACKGROUND,
+            ComponentCallbacks2.TRIM_MEMORY_MODERATE,
+            ComponentCallbacks2.TRIM_MEMORY_COMPLETE -> {
+                /*
+                   Release as much memory as the process can.
+
+                   The app is on the LRU list and the system is running low on memory.
+                   The event raised indicates where the app sits within the LRU list.
+                   If the event is TRIM_MEMORY_COMPLETE, the process will be one of
+                   the first to be terminated.
+                */
+            }
+
+            else -> {
+                /*
+                  Release any non-critical data structures.
+
+                  The app received an unrecognized memory level value
+                  from the system. Treat this as a generic low-memory message.
+                */
+            }
+        }
+    }
 }
