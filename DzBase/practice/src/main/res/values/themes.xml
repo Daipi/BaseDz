@@ -13,4 +13,31 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <style name="Theme.DzBase.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="actionOverflowMenuStyle">@style/ToolBarStyle</item> <!--注意添加!-->
+    </style>
+
+    <style name="Theme.DzBase.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.DzBase.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+
+    <!-- ToolBar -->
+    <style name="ToolBarStyle" parent="@style/ThemeOverlay.AppCompat.ActionBar">
+
+        <!--menu按钮颜色
+        <item name="android:textColorPrimary">#FFFFFF</item>-->
+        <!--字体颜色
+        <item name="android:textColor">@color/white</item>-->
+        <!--  修改字体大小
+        <item name="android:textSize">14sp</item>-->
+        <!--menu背景色
+        <item name="android:popupBackground">@color/colorPrimary</item>-->
+        <!--设置menu在 ... 下方-->
+        <item name="overlapAnchor">false</item>
+
+    </style>
 </resources>

@@ -5,10 +5,15 @@
     <application>
         <activity
             android:name=".PracticeActivity"
-            android:screenOrientation="portrait"
+            android:exported="true"
             android:launchMode="singleTop"
-            android:exported="true">
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.DZ.NoActionBar">
+
         </activity>
+        <activity android:name=".TestFragmentActivity"
+            android:exported="true"
+            android:theme="@style/Theme.DZ.NoActionBar"/>
     </application>
 
 </manifest>

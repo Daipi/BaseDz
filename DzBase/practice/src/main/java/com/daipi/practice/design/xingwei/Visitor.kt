@@ -1,4 +1,4 @@
-package com.daipi.practice.design.behavior
+package com.daipi.practice.design.xingwei
 
 /**
  * author:daijs

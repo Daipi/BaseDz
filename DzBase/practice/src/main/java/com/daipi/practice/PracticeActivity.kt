@@ -1,5 +1,6 @@
 package com.daipi.practice
 
+import android.content.Intent
 import android.os.Bundle
 import com.daipi.base.base.BaseBindActivity
 import com.daipi.base.utils.ToastUtil
@@ -22,6 +23,7 @@ class PracticeActivity : BaseBindActivity() {
         //接收传值
         ToastUtil.show(intent?.getStringExtra("msg") ?:"")
 
+        startActivity(Intent(this,TestFragmentActivity::class.java))
     }
 
     override fun getContentViewId(): Int {

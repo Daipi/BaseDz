@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/filter_test1"
+        android:icon="@drawable/ic_back_white"
+        app:showAsAction="always"
+        android:title="菜单一号">
+        <menu>
+            <item android:id="@+id/filter_test2"
+                android:icon="@drawable/ic_back_white"
+                app:showAsAction="always"
+                android:title="菜单二号"/>
+            <item android:id="@+id/filter_test3"
+                android:icon="@drawable/ic_back_white"
+                app:showAsAction="always"
+                android:title="菜单三号"/>
+        </menu>
+    </item>
+
+</menu>

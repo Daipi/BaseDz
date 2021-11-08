@@ -20,7 +20,6 @@ android {
     buildTypes {
         release {
             minifyEnabled true//代码缩减
-            shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }

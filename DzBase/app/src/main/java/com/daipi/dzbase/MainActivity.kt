@@ -11,6 +11,7 @@ import com.daipi.base.autoservice.BaseServiceLoader
 import com.daipi.base.utils.LogUtil
 import com.daipi.common.Cat
 import com.daipi.common.autoservice.IPracticeService
+import com.daipi.common.autoservice.ITestFmActService
 import com.daipi.common.bus.BusKey
 import com.daipi.common.bus.TestEvent
 import com.daipi.dzbase.databinding.ActivityMainBinding
@@ -72,8 +73,9 @@ class MainActivity : AppCompatActivity() {
 
     fun toPractice(view: View) {
         //LiveDataBus.get().with("testBus").value = "哈哈哈LiveDataBus"
-        BaseServiceLoader.load(IPracticeService::class.java)
-            ?.toPractice(this, cat.name)
+/*        BaseServiceLoader.load(IPracticeService::class.java)
+            ?.toPractice(this, cat.name)*/
+        BaseServiceLoader.load(ITestFmActService::class.java)?.toTestFragment(this)
     }
 
     override fun onDestroy() {
