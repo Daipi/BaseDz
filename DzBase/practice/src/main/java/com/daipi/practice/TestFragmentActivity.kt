@@ -21,71 +21,21 @@ import dagger.hilt.android.AndroidEntryPoint
 class TestFragmentActivity : BaseBindFragmentActivity() {
 
     private lateinit var binding: ActivityTestFragmentBinding
-    private lateinit var obj: ViewPager2.OnPageChangeCallback
+/*    private lateinit var obj: ViewPager2.OnPageChangeCallback
     private lateinit var adapter: TestPagerAdapter
-    private val viewModel: TestFmModule by viewModels()
+    private val viewModel: TestFmModule by viewModels()*/
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = getDataBinding()
-        MmkvUtil.getKv()?.encode("fw_count","初始化")
-        adapter = TestPagerAdapter(this)
-        binding.actTfVp.adapter = adapter
-        TabLayoutMediator(binding.actTfTab, binding.actTfVp) {
-            tab, position -> tab.text = "第" + position + "页"
-        }.attach()
 
-        initListener()
-        binding.actTfToolbar.setNavigationOnClickListener { finish() }
-        binding.actTfToolbar.setOnMenuItemClickListener { item ->
-            when (item.itemId) {
-                R.id.filter_test1 -> {
-                    ToastUtil.show("菜单1")
-                    true
-                }
-                R.id.filter_test2 -> {
-                    ToastUtil.show("菜单2")
-                    true
-                }
-                R.id.filter_test3 -> {
-                    ToastUtil.show("菜单3")
-                    true
-                }
-                else -> false
-            }
-        }
-        binding.actTfToolbar.menu
+
     }
 
-    private fun initListener() {
-        obj = object : ViewPager2.OnPageChangeCallback() {
-            override fun onPageSelected(position: Int) {
-                onChange(position)
-            }
 
-            override fun onPageScrollStateChanged(state: Int) {
-                super.onPageScrollStateChanged(state)
-            }
-        }
-        binding.actTfVp.registerOnPageChangeCallback(obj)
-    }
-
-    fun onChange(position: Int) {
-        when (position) {
-            0 -> {
-                MmkvUtil.getKv()?.encode("fw_count","第一页")
-                viewModel.getTextData()
-            }
-            1 -> {
-                MmkvUtil.getKv()?.encode("fw_count","第二页")
-                viewModel.getTextData()
-            }
-        }
-    }
 
     override fun onDestroy() {
         super.onDestroy()
-        binding.actTfVp.unregisterOnPageChangeCallback(obj)
     }
 
     override fun getContentViewId(): Int {

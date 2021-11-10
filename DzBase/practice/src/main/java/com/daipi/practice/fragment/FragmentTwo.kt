@@ -5,12 +5,14 @@ import androidx.lifecycle.Observer
 import com.daipi.base.base.BaseBindFragment
 import com.daipi.practice.R
 import com.daipi.practice.databinding.FragmentTwoBinding
+import dagger.hilt.android.AndroidEntryPoint
 
 /**
  * author:daijs
  * time:2021/11/8
  * details:
  */
+@AndroidEntryPoint
 class FragmentTwo : BaseBindFragment() {
     private val viewModel: TestFmModule by activityViewModels()
     private lateinit var bind: FragmentTwoBinding

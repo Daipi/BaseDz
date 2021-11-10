@@ -13,13 +13,23 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/fm_page1_tv"
+            android:id="@+id/fm_page2_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="30sp"
-            android:text="@{module.text}"
+            android:text="page2"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"/>
+
+        <TextView
+            android:id="@+id/fm_page2_tv2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30sp"
+            android:text="back"
+            app:layout_constraintTop_toBottomOf="@+id/fm_page2_tv"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"/>
 

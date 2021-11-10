@@ -51,7 +51,7 @@ class TestFragment: BaseBindFragment() {
         //GlobalScope.launch(MyContinuationInterceptor()) { test() }
         viewModel.viewModelScope.launch(MyContinuationInterceptor()) { test() }
         registerBus()
-        viewModel.viewModelScope.launch (Dispatchers.IO){
+        viewModel.viewModelScope.launch (Dispatchers.IO) {
             var i = 50
 /*            while(i > 0) {
                 i--

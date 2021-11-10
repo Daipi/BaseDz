@@ -4,16 +4,18 @@
 
     <application>
         <activity
+            android:name=".TestNavigationActivity"
+            android:exported="false" />
+        <activity
             android:name=".PracticeActivity"
             android:exported="true"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.DZ.NoActionBar">
-
-        </activity>
-        <activity android:name=".TestFragmentActivity"
+            android:theme="@style/Theme.DZ.NoActionBar"></activity>
+        <activity
+            android:name=".TestFragmentActivity"
             android:exported="true"
-            android:theme="@style/Theme.DZ.NoActionBar"/>
+            android:theme="@style/Theme.DZ.NoActionBar" />
     </application>
 
 </manifest>
