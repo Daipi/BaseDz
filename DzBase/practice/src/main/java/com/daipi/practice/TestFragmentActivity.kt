@@ -1,15 +1,8 @@
 package com.daipi.practice
 
 import android.os.Bundle
-import androidx.activity.viewModels
-import androidx.viewpager2.widget.ViewPager2
 import com.daipi.base.base.BaseBindFragmentActivity
-import com.daipi.base.utils.ToastUtil
-import com.daipi.common.MmkvUtil
 import com.daipi.practice.databinding.ActivityTestFragmentBinding
-import com.daipi.practice.fragment.TestFmModule
-import com.daipi.practice.fragment.TestPagerAdapter
-import com.google.android.material.tabs.TabLayoutMediator
 import dagger.hilt.android.AndroidEntryPoint
 
 /**

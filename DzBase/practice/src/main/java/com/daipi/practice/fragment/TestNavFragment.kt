@@ -19,7 +19,7 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class TestNavFragment : BaseBindFragment() {
     private lateinit var binding: FragmentTestNavBinding
-    private val viewModel: TestFmModule by activityViewModels()
+    private val viewModel: TestFmModel by activityViewModels()
 
     private lateinit var obj: ViewPager2.OnPageChangeCallback
     private lateinit var adapter: TestPagerAdapter

@@ -12,7 +12,7 @@ import javax.inject.Inject
  * details:
  */
 @HiltViewModel
-class TestFmModule @Inject constructor () : ViewModel() {
+class TestFmModel @Inject constructor () : ViewModel() {
     val text: MutableLiveData<String> by lazy {
         MutableLiveData<String>()
     }

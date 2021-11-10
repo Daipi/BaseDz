@@ -14,7 +14,7 @@ import dagger.hilt.android.AndroidEntryPoint
  */
 @AndroidEntryPoint
 class FragmentTwo : BaseBindFragment() {
-    private val viewModel: TestFmModule by activityViewModels()
+    private val viewModel: TestFmModel by activityViewModels()
     private lateinit var bind: FragmentTwoBinding
 
     override fun getContentViewId(): Int = R.layout.fragment_two

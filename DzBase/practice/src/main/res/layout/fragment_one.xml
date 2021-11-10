@@ -4,7 +4,7 @@
     <data>
         <variable
             name="module"
-            type="com.daipi.practice.fragment.TestFmModule" />
+            type="com.daipi.practice.fragment.TestFmModel" />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

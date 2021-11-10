@@ -4,7 +4,6 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.Navigation
 import com.daipi.base.base.BaseBindFragment
-import com.daipi.base.utils.ToastUtil
 import com.daipi.practice.R
 import com.daipi.practice.databinding.FragmentOneBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -16,7 +15,7 @@ import dagger.hilt.android.AndroidEntryPoint
  */
 @AndroidEntryPoint
 class FragmentOne : BaseBindFragment() {
-    private val viewModel: TestFmModule by activityViewModels()
+    private val viewModel: TestFmModel by activityViewModels()
     private lateinit var bind: FragmentOneBinding
 
     override fun getContentViewId(): Int = R.layout.fragment_one
