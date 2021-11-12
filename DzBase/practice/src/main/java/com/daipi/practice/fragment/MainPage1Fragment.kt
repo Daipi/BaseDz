@@ -1,17 +1,13 @@
 package com.daipi.practice.fragment
 
-import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.navGraphViewModels
 import com.daipi.base.base.BaseBindFragment
 import com.daipi.practice.R
 import com.daipi.practice.databinding.FragmentMainPage1Binding
 import com.daipi.practice.databinding.FragmentMainPage2Binding
 import com.daipi.practice.databinding.FragmentMainPage3Binding
-import com.daipi.practice.databinding.FragmentOneBinding
 
 /**
  * author:daijs
@@ -22,8 +18,10 @@ class MainPage1Fragment : BaseBindFragment() {
     private lateinit var bind: FragmentMainPage1Binding
     override fun getContentViewId(): Int = R.layout.fragment_main_page1
 
+    private val viewModel: TestFmModel by navGraphViewModels(R.id.nav_graph)
     override fun initView() {
         bind = getDataBinding()
+        viewModel.text.value = "hhhh"
         bind.fmPage1Tv.setOnClickListener { Navigation.findNavController(it).navigate(R.id.action_mainPage1Fragment_to_mainPage2Fragment) }
     }
 }
@@ -44,7 +42,9 @@ class MainPage3Fragment : BaseBindFragment() {
     override fun getContentViewId(): Int = R.layout.fragment_main_page3
 
     override fun initView() {
-        bind = getDataBinding()//
+        bind = getDataBinding()
+        val navController = findNavController()
+        navController.navigate(R.id.testNavFragmentOne)
         //bind.fmPage3Tv.setOnClickListener { Navigation.findNavController(it).navigate(R.id.action_mainPage1Fragment_to_mainPage2Fragment) }
     }
 }
