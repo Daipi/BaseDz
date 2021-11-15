@@ -35,6 +35,14 @@ class TestFmModel @Inject constructor () : ViewModel() {
             emit(i)
         }
     }
+    val producer4: Flow<Int> = channelFlow<Int> {
+        for (i in 1..10) {
+            delay(1000)
+            send(i) //emit 变为 send
+        }
+    }
+    val producer2: Flow<IntRange> = flowOf(1..50)
+    val producer3: Flow<Int> = (1..50).asFlow()
     suspend fun FlowTest3() {
         producer.map { it * 10 }
             .catch { emit(100) }
