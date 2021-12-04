@@ -15,4 +15,5 @@ public interface IAppServer {
 
     @GET(AppUrlConstant.GET_PROJECT)
     Observable<ResultData<List<ProjectType>>> getProject2();
+
 }

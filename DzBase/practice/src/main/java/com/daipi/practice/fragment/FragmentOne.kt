@@ -1,5 +1,9 @@
 package com.daipi.practice.fragment
 
+import android.app.Activity
+import android.content.Context
+import android.content.ContextWrapper
+import android.view.View
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.Navigation
@@ -43,8 +47,26 @@ class FragmentOne : BaseBindFragment() {
 
             viewModel.amendLateText.collect { text -> ToastUtil.show("" + text) }
         }
-
+        getActivityFromView(bind.fmOneIv)
 
         bind.fmOneTv.setOnClickListener { Navigation.findNavController(it).navigate(R.id.action_fragmentOne_to_mainPage1Fragment) }
     }
+
+    /**
+     * 尝试从视图中获取Activity.
+     * 托管在浮动窗口(如dialog和toast)上的视图肯定会返回null.
+     * @return host activity; or null if not available
+     */
+    //从View获取真正的Activity
+    fun getActivityFromView(view: View): Activity? {
+        var context = view.context
+        while (context is ContextWrapper) {
+            if (context is Activity) {
+                return context
+            }
+            context = context.baseContext
+        }
+        return null
+    }
+
 }

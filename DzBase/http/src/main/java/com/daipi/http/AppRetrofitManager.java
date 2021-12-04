@@ -1,6 +1,7 @@
 package com.daipi.http;
 
 import com.daipi.http.netApi.IAppServer;
+import com.daipi.http.netApi.IAppServerKt;
 
 public class AppRetrofitManager {
 
@@ -10,5 +11,11 @@ public class AppRetrofitManager {
 
     public static IAppServer getApiService() {
         return server;
+    }
+
+    private static IAppServerKt serverKt = RetrofitManager.INSTANCE.get().create(IAppServerKt.class);
+
+    public static IAppServerKt getApiServiceKt() {
+        return serverKt;
     }
 }
