@@ -13,21 +13,37 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.daipi.permission.target;
+package com.daipi.permission.oldversion.target;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 
 /**
- * <p>Request target.</p>
+ * <p>Context Wrapper.</p>
  * Created by Yan Zhenjie on 2017/5/1.
  */
-public interface Target {
+public class ContextTarget implements Target {
 
-    Context getContext();
+    private Context mContext;
 
-    void startActivity(Intent intent);
+    public ContextTarget(Context context) {
+        this.mContext = context;
+    }
 
-    void startActivityForResult(Intent intent, int requestCode);
+    @Override
+    public Context getContext() {
+        return mContext;
+    }
 
+    @Override
+    public void startActivity(Intent intent) {
+        mContext.startActivity(intent);
+    }
+
+    @Override
+    public void startActivityForResult(Intent intent, int requestCode) {
+        if (mContext instanceof Activity) ((Activity) mContext).startActivityForResult(intent, requestCode);
+        else mContext.startActivity(intent);
+    }
 }

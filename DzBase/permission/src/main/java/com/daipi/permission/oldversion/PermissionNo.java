@@ -13,17 +13,19 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.daipi.permission;
+package com.daipi.permission.oldversion;
+
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
 
 /**
- * <p>Cancelable.</p>
- * Created by Yan Zhenjie on 2016/12/28.
+ * <p>The callback method when the permission is failure.</p>
+ * Created by Yan Zhenjie on 2016/9/10.
  */
-public interface Cancelable {
-
-    /**
-     * Cancel the operation.
-     */
-    void cancel();
-
+@Retention(RetentionPolicy.RUNTIME)
+@Target(ElementType.METHOD)
+public @interface PermissionNo {
+    int value() default 0;
 }

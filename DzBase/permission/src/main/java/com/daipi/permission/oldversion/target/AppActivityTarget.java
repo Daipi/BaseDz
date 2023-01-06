@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.daipi.permission.target;
+package com.daipi.permission.oldversion.target;
 
 import android.app.Activity;
 import android.content.Context;

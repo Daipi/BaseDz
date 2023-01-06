@@ -13,12 +13,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.daipi.permission;
+package com.daipi.permission.oldversion;
 
 /**
- * <p>Rationale callback.</p>
+ * <p>Permission rationale.</p>
  * Created by Yan Zhenjie on 2016/9/10.
  */
-public interface RationaleListener {
-    void showRequestPermissionRationale(int requestCode, Rationale rationale);
+public interface Rationale extends Cancelable {
+
+    /**
+     * Go request permission.
+     */
+    void resume();
+
 }

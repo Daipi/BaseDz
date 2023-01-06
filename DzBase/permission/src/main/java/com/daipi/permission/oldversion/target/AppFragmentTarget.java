@@ -13,28 +13,27 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.daipi.permission.target;
+package com.daipi.permission.oldversion.target;
 
+import android.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
 
-import androidx.fragment.app.Fragment;
-
 /**
- * <p>android.support.v4.app.Fragment Wrapper.</p>
+ * <p>android.app.Fragment Wrapper.</p>
  * Created by Yan Zhenjie on 2017/5/1.
  */
-public class SupportFragmentTarget implements Target {
+public class AppFragmentTarget implements Target {
 
     private Fragment mFragment;
 
-    public SupportFragmentTarget(Fragment fragment) {
+    public AppFragmentTarget(Fragment fragment) {
         this.mFragment = fragment;
     }
 
     @Override
     public Context getContext() {
-        return mFragment.getContext();
+        return mFragment.getActivity();
     }
 
     @Override

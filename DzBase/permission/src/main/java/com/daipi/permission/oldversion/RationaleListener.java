@@ -13,17 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.daipi.permission;
+package com.daipi.permission.oldversion;
 
 /**
- * <p>Setting Service.</p>
- * Created by Yan Zhenjie on 2016/12/28.
+ * <p>Rationale callback.</p>
+ * Created by Yan Zhenjie on 2016/9/10.
  */
-public interface SettingService extends com.yanzhenjie.permission.Cancelable {
-
-    /**
-     * Execute setting.
-     */
-    void execute();
-
+public interface RationaleListener {
+    void showRequestPermissionRationale(int requestCode, Rationale rationale);
 }

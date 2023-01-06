@@ -13,19 +13,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.daipi.permission;
-
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
+package com.daipi.permission.oldversion;
 
 /**
- * <p>The callback method when the permission is failure.</p>
- * Created by Yan Zhenjie on 2016/9/10.
+ * <p>Setting Service.</p>
+ * Created by Yan Zhenjie on 2016/12/28.
  */
-@Retention(RetentionPolicy.RUNTIME)
-@Target(ElementType.METHOD)
-public @interface PermissionNo {
-    int value() default 0;
+public interface SettingService extends com.yanzhenjie.permission.Cancelable {
+
+    /**
+     * Execute setting.
+     */
+    void execute();
+
 }

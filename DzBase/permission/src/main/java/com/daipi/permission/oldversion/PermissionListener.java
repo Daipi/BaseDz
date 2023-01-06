@@ -13,17 +13,21 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.daipi.permission;
+package com.daipi.permission.oldversion;
+
+
+import androidx.annotation.NonNull;
+
+import java.util.List;
 
 /**
- * <p>Permission rationale.</p>
- * Created by Yan Zhenjie on 2016/9/10.
+ * <p>Permission request callback.</p>
+ * Created by Yan Zhenjie on 2016/9/17.
  */
-public interface Rationale extends Cancelable {
+public interface PermissionListener {
 
-    /**
-     * Go request permission.
-     */
-    void resume();
+    void onSucceed(int requestCode, @NonNull List<String> grantPermissions);
+
+    void onFailed(int requestCode, @NonNull List<String> deniedPermissions);
 
 }

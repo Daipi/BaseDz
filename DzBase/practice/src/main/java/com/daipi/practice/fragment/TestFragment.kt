@@ -46,8 +46,8 @@ class TestFragment: BaseBindFragment() {
         adapter = PracticeAdapter(context,list)
         val manager = LinearLayoutManager(context)
         manager.orientation = LinearLayoutManager.VERTICAL
-        binding.rvMainList.layoutManager = manager
-        binding.rvMainList.adapter = adapter
+        //binding.rvMainList.layoutManager = manager
+        //binding.rvMainList.adapter = adapter
         //GlobalScope.launch(MyContinuationInterceptor()) { test() }
         viewModel.viewModelScope.launch(MyContinuationInterceptor()) { test() }
         registerBus()
@@ -74,6 +74,7 @@ class TestFragment: BaseBindFragment() {
         LogUtil.d(1)
         delay(2000)
         LiveEventBus.get(TestEvent::class.java).post(TestEvent("Hello"))
+        LiveEventBus.get(TestEvent::class.java).postOrderly(TestEvent("Hello"))
 /*        val job = viewModel.viewModelScope.async(CoroutineName("XC02"),start = CoroutineStart.LAZY) {
             LogUtil.d("02")
             999

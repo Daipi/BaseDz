@@ -53,7 +53,7 @@ class MainActivity : AppCompatActivity() {
         bind = DataBindingUtil.setContentView(this,R.layout.activity_main)
 
         val userObserver = Observer<User> { user ->
-            bind.tvMainApp.text = user.firstName
+            //bind.tvMainApp.text = user.firstName
         }
         mainModel.user.observe(this, userObserver)
 /*    override fun getContentViewId(): Int {
