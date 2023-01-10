@@ -1,6 +1,8 @@
 package com.daipi.permission.aspectversion.annotation;
 
-import com.derry.premissionstudy.permission.MyPermissionActivity;
+
+
+import com.daipi.permission.aspectversion.MyPermissionActivity;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

@@ -11,12 +11,17 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/anrcheck" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/base" />
+            <option value="$PROJECT_DIR$/batterycheck" />
             <option value="$PROJECT_DIR$/common" />
+            <option value="$PROJECT_DIR$/fpscheck" />
             <option value="$PROJECT_DIR$/http" />
+            <option value="$PROJECT_DIR$/memorycheck" />
             <option value="$PROJECT_DIR$/permission" />
             <option value="$PROJECT_DIR$/practice" />
+            <option value="$PROJECT_DIR$/trafficcheck" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

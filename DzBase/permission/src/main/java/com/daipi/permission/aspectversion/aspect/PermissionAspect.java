@@ -4,12 +4,13 @@ import android.content.Context;
 
 import androidx.fragment.app.Fragment;
 
-import com.derry.premissionstudy.permission.MyPermissionActivity;
-import com.derry.premissionstudy.permission.annotation.Permission;
-import com.derry.premissionstudy.permission.annotation.PermissionCancel;
-import com.derry.premissionstudy.permission.annotation.PermissionDenied;
-import com.derry.premissionstudy.permission.core.IPermission;
-import com.derry.premissionstudy.permission.util.PermissionUtils;
+
+import com.daipi.permission.aspectversion.MyPermissionActivity;
+import com.daipi.permission.aspectversion.annotation.Permission;
+import com.daipi.permission.aspectversion.annotation.PermissionCancel;
+import com.daipi.permission.aspectversion.annotation.PermissionDenied;
+import com.daipi.permission.aspectversion.core.IPermission;
+import com.daipi.permission.oldversion.util.PermissionUtils;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;

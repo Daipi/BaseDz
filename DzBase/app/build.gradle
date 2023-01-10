@@ -79,6 +79,7 @@ dependencies {
     implementation project(':http')
     implementation project(':common')
     implementation project(':practice')
+    implementation project(':anrcheck')
     kapt "com.google.dagger:hilt-android-compiler:$rootProject.hiltVersion"
     implementation "com.google.dagger:hilt-android:$rootProject.hiltVersion"
 }
